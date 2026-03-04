@@ -1,14 +1,14 @@
-let numero = parseInt(prompt("digite um numero"))
+let num = parseInt(prompt("digite um numero"))
 let i
-let cont = 0
-for(i = 1; i <= numero; i++){
-    if(numero%i == 0){
-        cont++
+let ultimo, fibonacci
+for(i = 1; i <= num; i++){
+    if(i == 1 || i == 2){
+        alert(1)
+        fibonacci = 2
     }
-}
-if(cont != 2){
-    alert("não é primo")
-}
-else{
-    alert("é primo")
+    else{
+        fibonacci = ultimo + i
+        alert(fibonacci)
+        ultimo = i
+    }
 }

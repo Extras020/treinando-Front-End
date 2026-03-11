@@ -1,24 +1,7 @@
-const readline = require("readline")
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-})
-
-rl.question("Digite o primeiro numero: ", function(n1) {
-    rl.question("Digite o segundo numero: ", function(n2) {
-        n1 = Number(n1)
-        n2 = Number(n2)
-
-        if(n1 > n2){
-            console.log(`maior numero: ${n1}`)
-        }
-        else if(n2 > n1){
-            console.log(`maior numero: ${n2}`)
-        }
-        else{
-            console.log("os numeros são iguais")
-        }
-        rl.close()
-    })
-})
+function somaArray(arr){
+    let soma = 0, i
+    for(i = 0; i < arr.length; i++){
+        soma = soma + arr[i]
+    }
+}
+let numeros = [2, 3, 4, 5, 6]

@@ -1,10 +1,12 @@
-function filtrarpositivos(arr){
-    let quociente = 0
-    for(let i = 0; i < arr.length; i++){
-        quociente = quociente + arr[i]
+function segundoMaior(arr){
+    let maior = arr[0]
+    for(let i = 1; i < arr.length; i++){
+        if(arr[i] > maior){
+            maior = arr[i]
+        }
     }
-    quociente = quociente / arr.length
-    return quociente
+    return cont
 }
-let numeros = [5, -2, 7, -3, 9]
-console.log(filtrarpositivos(numeros))
+let numeros = [10, 5, 8, 20, 3]
+console.log(segundoMaior(numeros))
+//ainda não terminei esse exercicio

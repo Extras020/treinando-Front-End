@@ -1,7 +1,10 @@
-function somaArray(arr){
-    let soma = 0, i
-    for(i = 0; i < arr.length; i++){
-        soma = soma + arr[i]
+function filtrarpositivos(arr){
+    let quociente = 0
+    for(let i = 0; i < arr.length; i++){
+        quociente = quociente + arr[i]
     }
+    quociente = quociente / arr.length
+    return quociente
 }
-let numeros = [2, 3, 4, 5, 6]
+let numeros = [5, -2, 7, -3, 9]
+console.log(filtrarpositivos(numeros))

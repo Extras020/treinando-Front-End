@@ -1,13 +1,12 @@
-function removerDuplicados(arr){
-    let temp
+function Removeduplicados(arr){
+    let u = 1
     for(let i = 0; i < arr.length; i++){
-        for(u = i + 1; u < arr.length; u++){
-            if(arr[u] == arr[i]){
-                arr[u] = arr[u + 1]
-            }
+        if(arr[i] == arr[u]){
+            arr[u]
         }
     }
     return arr
 }
-let numeros = [1, 2, 2, 3, 4, 4, 5]
-console.log(removerDuplicados(numeros))
+let numeros = [5, 2, 8, 2, 9, 5, 1]
+console.log(Removeduplicados(numeros))
+//terminar amanhã

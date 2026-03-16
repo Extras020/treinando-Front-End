@@ -1,12 +1,13 @@
-function segundoMaior(arr){
-    let maior = arr[0]
-    for(let i = 1; i < arr.length; i++){
-        if(arr[i] > maior){
-            maior = arr[i]
+function removerDuplicados(arr){
+    let temp
+    for(let i = 0; i < arr.length; i++){
+        for(u = i + 1; u < arr.length; u++){
+            if(arr[u] == arr[i]){
+                arr[u] = arr[u + 1]
+            }
         }
     }
-    return cont
+    return arr
 }
-let numeros = [10, 5, 8, 20, 3]
-console.log(segundoMaior(numeros))
-//ainda não terminei esse exercicio
+let numeros = [1, 2, 2, 3, 4, 4, 5]
+console.log(removerDuplicados(numeros))

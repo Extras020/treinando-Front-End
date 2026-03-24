@@ -1,9 +1,14 @@
 const prompt = require("prompt-sync")()
 let aluno = {
-    nome: "esdras",
+    nome: "Esdras",
     idade: 23,
-    curso: "Ciencias e tecnologia"
+
+    endereco: {
+        rua: "Tancredo Neves",
+        cidade: "Natal",
+        estado: "Rio Grande do Norte"
+    },
+    mostrarEndereco: function(){
+        console.log(`${this.nome} tem ${this.idade} anos, mora em ${this.endereco.cidade}`)
+    }
 }
-console.log(aluno.nome)
-console.log(aluno.idade)
-console.log(aluno.curso)

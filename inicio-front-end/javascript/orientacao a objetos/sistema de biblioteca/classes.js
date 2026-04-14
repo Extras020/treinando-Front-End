@@ -16,6 +16,9 @@ export class Livro{
     retornaId(){
         return this.#id
     }
+    retornaQnt(){
+        return this.#qnt
+    }
 }
 export class Usuario{
     #cpf
@@ -41,37 +44,49 @@ export class Usuario{
 }
 export class Biblioteca{
     constructor(){
-        this.livros = []
+        this.acervo = []
         this.usuarios = []
     }
-    cadastrarLivro(){
-        let id = prompt("informe o id do livo: ")
-        for(let i = 0; i < length.this.livros; i++){
-            if(id == this.livros[i].retornaId){
-                console.log("livro já existe no acervo")
+    cadastrarLivro(livro){
+        for(let i = 0; i < this.acervo.length; i++){
+            if(livro.retornaId() == this.acervo[i].retornaId()){
+                console.log("livro já existe no acervo!")
+                return
             }
         }
-        let nome = prompt("informe o nome do livro: ")
-        let autor = prompt("informe o nome do autor: ")
-        let qnt = prompt("informe a quantidade: ")
+        this.acervo.push(new Livro(livro.nome, livro.autor, livro.retornaId, livro.retornaQnt))
     }
-    cadastrarUsuario(){
-        let cpf = prompt("informe o CPF do usuário: ")
-        let nome = prompt("informe o nome do usuário: ")
-        let idade = prompt("informe a idade do usuário: ")
+    cadastrarUsuario(usuario){
+        for(let i = 0; i < this.usuarios.length; i++){
+            if(usuario.retornaCpf() == this.usuarios[i].retornaCpf()){
+                console.log("usuário já existe no sistema!")
+                return
+            }
+        }
+        this.usuarios.push(new Usuario(usuario.nome, usuario.retornaCpf, usuario.idade))
     }
-    emprestarLivro(){
+    emprestarLivro(livro, usuario){
         let id = prompt("infome o id do livro que deseja: ")
-        let nome = prompt("informe o id do livro que deseja: ")
+        let nome = prompt("informe o nome do livro que deseja: ")
         let autor = prompt("informe o autor do livro que deseja: ")
     }
-    devolverLivro(){
+    devolverLivro(livro, usuario){
         let cpf = prompt("infome do cpf do usuário: ")
+        this.buscarUsuário()
+
     }
     buscarUsuário(cpf){
-        for(let i = 0; i < this.usuarios[i].length; i++){
+        for(let i = 0; i < this.usuarios.length; i++){
             if(cpf == this.usuarios[i].retornaCpf()){
                 this.usuarios[i].mostrarDados()
+                break
+            }
+        }
+    }
+    buscarLivro(id){
+        for(let i = 0; i < this.acervo.length; i++){
+            if(id == this.acervo[i].retornaId()){
+                this.acervo[i].mostrarDados()
                 break
             }
         }

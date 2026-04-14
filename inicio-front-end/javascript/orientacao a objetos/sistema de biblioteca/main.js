@@ -1,11 +1,11 @@
 import promptSync from 'prompt-sync'
 const prompt = promptSync()
 import {Livro, Usuario, Biblioteca} from './classes.js'
+import { criarLivro, criarUsuario } from './objetos.js'
 
-let nome = prompt("digite o nome: ")
-let idade = prompt("digite idade: ")
-let cpf = prompt("digite o cpf: ")
+let sistema = new Biblioteca()
 
-let lv = new Usuario(nome, cpf, idade)
-
-lv.mostrarDados()
+let livro = criarLivro()
+sistema.cadastrarLivro(livro)
+let usuario = criarUsuario()
+sistema.cadastrarUsuario(usuario)

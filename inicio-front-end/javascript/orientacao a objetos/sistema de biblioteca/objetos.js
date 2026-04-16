@@ -1,6 +1,7 @@
 import promptSync from 'prompt-sync'
 const prompt = promptSync()
 import {Livro, Usuario, Biblioteca} from './classes.js'
+import { sistema } from './sistema.js'
 
 export function criarUsuario(){
     let nome = prompt("digite o nome do usuário: ")
@@ -16,4 +17,9 @@ export function criarLivro(){
     let qnt = prompt("informe a quantidade: ")
     let livro = new Livro(nome, autor, id, qnt)
     return livro
+}
+export function requisicao_emprestimo(){
+    let cpf = prompt("digite o cpf do usuário: ")
+    // não usar isso aqui!!!! let usuario = sistema.buscarUsuario(cpf)
+    let id = prompt("digite o id do livro que deseja: ")
 }

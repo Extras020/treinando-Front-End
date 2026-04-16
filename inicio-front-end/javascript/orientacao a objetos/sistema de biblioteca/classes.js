@@ -66,29 +66,27 @@ export class Biblioteca{
         this.usuarios.push(new Usuario(usuario.nome, usuario.retornaCpf, usuario.idade))
     }
     emprestarLivro(livro, usuario){
-        let id = prompt("infome o id do livro que deseja: ")
-        let nome = prompt("informe o nome do livro que deseja: ")
-        let autor = prompt("informe o autor do livro que deseja: ")
+        
     }
     devolverLivro(livro, usuario){
-        let cpf = prompt("infome do cpf do usuário: ")
-        this.buscarUsuário()
-
+        
     }
     buscarUsuário(cpf){
         for(let i = 0; i < this.usuarios.length; i++){
             if(cpf == this.usuarios[i].retornaCpf()){
-                this.usuarios[i].mostrarDados()
-                break
+                let usuario = this.usuarios[i]
+                return usuario
             }
         }
+        console.log("usuário não encontrado!")
     }
     buscarLivro(id){
         for(let i = 0; i < this.acervo.length; i++){
             if(id == this.acervo[i].retornaId()){
-                this.acervo[i].mostrarDados()
-                break
+                let livro = this.acervo[i]
+                return livro
             }
         }
+        console.log("livro não encontrado!")
     }
 }

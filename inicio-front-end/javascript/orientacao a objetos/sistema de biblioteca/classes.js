@@ -19,6 +19,9 @@ export class Livro{
     retornaQnt(){
         return this.#qnt
     }
+    menosUm(){
+        this.#qnt--
+    }
 }
 export class Usuario{
     #cpf
@@ -80,12 +83,22 @@ export class Biblioteca{
                 break
             }
         }
-        if(this.usuarios[pos_user].retornaQnt() == 5){
+        if(pos_user == undefined || pos_book == undefined){
+            console.log(`informações inconsistentes, tente novamente!`)
+            return
+        }
+        if(this.usuarios[pos_user].emprestados.length == 5){
             console.log("usuário já atingiu o limite de emprestimos, operação não pode ser realizada!")
             return
         }
-        else if(this.usuarios[pos_user].retornaQnt() < 5){
-            // falta terminar isso aqui this.usuarios[pos_user].emprestados.push()
+        else if(this.usuarios[pos_user].emprestados.length < 5){
+            if(this.acervo[pos_book].retornaQnt() == 0){
+                console.log(`livro não disponível!`)
+            }
+            else{
+                this.usuarios[pos_user].emprestados.push(this.acervo[pos_book])
+                this.acervo[pos_book].menosUm()
+            }
         }
     }
     devolverLivro(dados){

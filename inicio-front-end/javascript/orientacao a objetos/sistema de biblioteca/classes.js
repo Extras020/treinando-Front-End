@@ -54,7 +54,7 @@ export class Biblioteca{
                 return
             }
         }
-        this.acervo.push(new Livro(livro.nome, livro.autor, livro.retornaId, livro.retornaQnt))
+        this.acervo.push(new Livro(livro.nome, livro.autor, livro.retornaId(), livro.retornaQnt))
     }
     cadastrarUsuario(usuario){
         for(let i = 0; i < this.usuarios.length; i++){
@@ -63,19 +63,39 @@ export class Biblioteca{
                 return
             }
         }
-        this.usuarios.push(new Usuario(usuario.nome, usuario.retornaCpf, usuario.idade))
+        this.usuarios.push(new Usuario(usuario.nome, usuario.retornaCpf(), usuario.idade))
     }
-    emprestarLivro(livro, usuario){
+    emprestarLivro(dados){
+        let pos_user
+        let pos_book
+        for(let i = 0; i < this.usuarios.length; i++){
+            if(dados.cpf == this.usuarios[i].retornaCpf()){
+                pos_user = i
+                break
+            }
+        }
+        for(let u = 0; u < this.acervo.length; u++){
+            if(dados.id == this.acervo[u].retornaId()){
+                pos_book = u
+                break
+            }
+        }
+        if(this.usuarios[pos_user].retornaQnt() == 5){
+            console.log("usuário já atingiu o limite de emprestimos, operação não pode ser realizada!")
+            return
+        }
+        else if(this.usuarios[pos_user].retornaQnt() < 5){
+            // falta terminar isso aqui this.usuarios[pos_user].emprestados.push()
+        }
+    }
+    devolverLivro(dados){
         
     }
-    devolverLivro(livro, usuario){
-        
-    }
-    buscarUsuário(cpf){
+    buscarUsuario(cpf){
         for(let i = 0; i < this.usuarios.length; i++){
             if(cpf == this.usuarios[i].retornaCpf()){
-                let usuario = this.usuarios[i]
-                return usuario
+                console.log(`${this.usuarios[i].mostrarDados()}`)
+                return
             }
         }
         console.log("usuário não encontrado!")
@@ -83,8 +103,8 @@ export class Biblioteca{
     buscarLivro(id){
         for(let i = 0; i < this.acervo.length; i++){
             if(id == this.acervo[i].retornaId()){
-                let livro = this.acervo[i]
-                return livro
+                console.log(`${this.acervo[i].mostrarDados()}`)
+                return
             }
         }
         console.log("livro não encontrado!")

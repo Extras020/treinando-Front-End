@@ -19,7 +19,29 @@ export function criarLivro(){
     return livro
 }
 export function requisicao_emprestimo(){
-    let cpf = prompt("digite o cpf do usuário: ")
-    // não usar isso aqui!!!! let usuario = sistema.buscarUsuario(cpf)
-    let id = prompt("digite o id do livro que deseja: ")
+    let escolha = 0
+    let cpf_usuario
+    let id_livro
+    while(escolha == 0){
+        cpf_usuario = prompt("digite o cpf do usuário: ")
+        sistema.buscarUsuario(cpf_usuario)
+        escolha = Number(prompt("confirme se esse é o usuário(1 para sim, 0 para não, 2 para cancelar a operação): "))
+        if(escolha == 2){
+            return
+        }
+    }
+    escolha = 0
+    while(escolha == 0){
+        id_livro = prompt("digite o id do livro: ")
+        sistema.buscarLivro(id_livro)
+        escolha = Number(prompt("confirme se esse é o livro(1 para sim, 0 para não, 2 para cancelar a operação): "))
+        if(escolha == 2){
+            return
+        }
+    }
+    let dados = {
+        cpf: cpf_usuario,
+        id: id_livro
+    }
+    return dados
 }

@@ -102,6 +102,24 @@ export class Biblioteca{
         }
     }
     devolverLivro(dados){
+        let pos_user
+        let pos_book
+        for(let i = 0; i < this.usuarios.length; i++){
+            if(dados.cpf == this.usuarios[i].retornaCpf()){
+                pos_user = i
+                break
+            }
+        }
+        for(let u = 0; u < this.acervo.length; i++){
+            if(dados.id == this.acervo[i].retornaId()){
+                pos_book = u
+                break
+            }
+        }
+        if(pos_user == undefined || pos_book == undefined){
+            console.log("informações inconsistentes, tente novamente!")
+            return
+        }
         
     }
     buscarUsuario(cpf){

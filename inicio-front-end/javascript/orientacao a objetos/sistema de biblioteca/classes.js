@@ -22,6 +22,9 @@ export class Livro{
     menosUm(){
         this.#qnt--
     }
+    maisUm(){
+        this.#qnt++
+    }
 }
 export class Usuario{
     #cpf
@@ -110,17 +113,28 @@ export class Biblioteca{
                 break
             }
         }
-        for(let u = 0; u < this.acervo.length; i++){
-            if(dados.id == this.acervo[i].retornaId()){
+        if(pos_user == undefined){
+                console.log("usuário não encontrado, tente novamente!")
+                return
+        }
+        for(let u = 0; u < this.usuarios[pos_user].emprestados.length; u++){
+            if(dados.id == this.usuarios[pos_user].emprestados[u].retornaId()){
                 pos_book = u
                 break
             }
         }
-        if(pos_user == undefined || pos_book == undefined){
-            console.log("informações inconsistentes, tente novamente!")
+        if(pos_book == undefined){
+            console.log("livro não pertence ao usuário, tente novamente!")
             return
         }
-        
+        this.usuarios[pos_user].emprestados.splice(pos_book, 1)
+        for(let i = 0; i < this.acervo.length; i++){
+            if(dados.id == this.acervo[i].retornaId()){
+                this.acervo[i].maisUm()
+                console.log("devolução realizada!")
+                return
+            }
+        }
     }
     buscarUsuario(cpf){
         for(let i = 0; i < this.usuarios.length; i++){

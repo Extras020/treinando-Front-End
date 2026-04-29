@@ -13,10 +13,10 @@ export class Livro{
         console.log(`Quantidade no acervo: ${this.#qnt}`)
         console.log(`Identificador: ${this.#id}`)
     }
-    retornaId(){
+    get Id(){
         return this.#id
     }
-    retornaQnt(){
+    get quantidade(){
         return this.#qnt
     }
     menosUm(){
@@ -49,7 +49,7 @@ export class Usuario{
             } 
         }
     }
-    retornaCpf(){
+    get cpf(){
         return this.#cpf
     }
 }
@@ -60,48 +60,55 @@ export class Biblioteca{
     }
     cadastrarLivro(livro){
         for(let i = 0; i < this.acervo.length; i++){
-            if(livro.retornaId() == this.acervo[i].retornaId()){
+            if(livro.Id == this.acervo[i].Id){
                 console.log("livro já existe no acervo!")
                 return
             }
         }
-        this.acervo.push(new Livro(livro.nome, livro.autor, livro.retornaId(), livro.retornaQnt()))
+        this.acervo.push(new Livro(livro.nome, livro.autor, livro.Id, livro.quantidade))
+        console.log("livro cadastrado!")
     }
     cadastrarUsuario(usuario){
         for(let i = 0; i < this.usuarios.length; i++){
-            if(usuario.retornaCpf() == this.usuarios[i].retornaCpf()){
+            if(usuario.cpf == this.usuarios[i].cpf){
                 console.log("usuário já existe no sistema!")
                 return
             }
         }
-        this.usuarios.push(new Usuario(usuario.nome, usuario.retornaCpf(), usuario.idade))
+        this.usuarios.push(new Usuario(usuario.nome, usuario.cpf, usuario.idade))
+        console.log("usuário cadastrado!")
     }
     emprestarLivro(dados){
         let pos_user
         let pos_book
         for(let i = 0; i < this.usuarios.length; i++){
-            if(dados.cpf == this.usuarios[i].retornaCpf()){
+            if(dados.cpf == this.usuarios[i].cpf){
                 pos_user = i
                 break
             }
         }
+        if(pos_user == undefined){
+            console.log("usuário não encontrado, tente novamente!")
+            return
+        }
         for(let u = 0; u < this.acervo.length; u++){
-            if(dados.id == this.acervo[u].retornaId()){
+            if(dados.id == this.acervo[u].Id){
                 pos_book = u
                 break
             }
         }
-        if(pos_user == undefined || pos_book == undefined){
-            console.log(`informações inconsistentes, tente novamente!`)
+        if(pos_book == undefined){
+            console.log("livro não encontrado, tente novamente!")
             return
         }
         if(this.usuarios[pos_user].emprestados.length == 5){
             console.log("usuário já atingiu o limite de emprestimos, operação não pode ser realizada!")
             return
         }
-        else if(this.usuarios[pos_user].emprestados.length < 5){
-            if(this.acervo[pos_book].retornaQnt() == 0){
+        if(this.usuarios[pos_user].emprestados.length < 5){
+            if(this.acervo[pos_book].quantidade == 0){
                 console.log(`livro não disponível!`)
+                return
             }
             else{
                 this.usuarios[pos_user].emprestados.push(this.acervo[pos_book])
@@ -114,7 +121,7 @@ export class Biblioteca{
         let pos_user
         let pos_book
         for(let i = 0; i < this.usuarios.length; i++){
-            if(dados.cpf == this.usuarios[i].retornaCpf()){
+            if(dados.cpf == this.usuarios[i].cpf){
                 pos_user = i
                 break
             }
@@ -124,7 +131,7 @@ export class Biblioteca{
                 return
         }
         for(let u = 0; u < this.usuarios[pos_user].emprestados.length; u++){
-            if(dados.id == this.usuarios[pos_user].emprestados[u].retornaId()){
+            if(dados.id == this.usuarios[pos_user].emprestados[u].Id){
                 pos_book = u
                 break
             }
@@ -135,7 +142,7 @@ export class Biblioteca{
         }
         this.usuarios[pos_user].emprestados.splice(pos_book, 1)
         for(let i = 0; i < this.acervo.length; i++){
-            if(dados.id == this.acervo[i].retornaId()){
+            if(dados.id == this.acervo[i].Id){
                 this.acervo[i].maisUm()
                 console.log("devolução realizada!")
                 return
@@ -144,7 +151,7 @@ export class Biblioteca{
     }
     buscarUsuario(cpf){
         for(let i = 0; i < this.usuarios.length; i++){
-            if(cpf == this.usuarios[i].retornaCpf()){
+            if(cpf == this.usuarios[i].cpf){
                 this.usuarios[i].mostrarDados()
                 return
             }
@@ -153,7 +160,7 @@ export class Biblioteca{
     }
     buscarLivro(id){
         for(let i = 0; i < this.acervo.length; i++){
-            if(id == this.acervo[i].retornaId()){
+            if(id == this.acervo[i].Id){
                 this.acervo[i].mostrarDados()
                 return
             }

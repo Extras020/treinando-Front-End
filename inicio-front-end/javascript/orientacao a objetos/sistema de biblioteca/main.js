@@ -14,4 +14,12 @@ while(true){
         let usuario = criarUsuario()
         sistema.cadastrarUsuario(usuario)
     }
+    if(escolha == 3){
+        let cpf = prompt()
+        sistema.buscarUsuario(cpf)
+    }
+    if(escolha == 4){
+        let id = prompt()
+        sistema.buscarLivro(id)
+    }
 }

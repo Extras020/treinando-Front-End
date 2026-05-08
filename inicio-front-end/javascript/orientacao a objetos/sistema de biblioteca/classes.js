@@ -179,4 +179,26 @@ export class Biblioteca{
             console.log("--------------------------------------------")
         }
     }
+    removerUsuario(cpf){
+        let pos_user
+        for(let i = 0; i < this.usuarios.length; i++){
+            if(cpf == this.usuarios[i].cpf){
+                pos_user = i
+                break
+            }
+        }
+        if(pos_user == undefined){
+            console.log("usuário não encontrado, tente novamente!")
+            return
+        }
+        else{
+            if(this.usuarios[pos_user].emprestados.length > 0){
+                console.log("usuário possui empréstimos pendentes, por favor regularize!")
+                return
+            }
+            else{
+
+            }
+        }
+    }
 }

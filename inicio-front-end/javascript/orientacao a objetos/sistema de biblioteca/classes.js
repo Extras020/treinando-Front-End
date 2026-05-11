@@ -197,7 +197,7 @@ export class Biblioteca{
                 return
             }
             else{
-
+                usuarios.splice(pos_user, 1)
             }
         }
     }

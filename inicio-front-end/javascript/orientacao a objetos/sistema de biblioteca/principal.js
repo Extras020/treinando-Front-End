@@ -11,7 +11,7 @@ while(true){
     console.log("2 - Usuários")
     console.log("3 - Empréstimos")
     console.log("0 - Sair")
-    let escolha = lerNumero()
+    let escolha = lerNumero(3)
     if(escolha == 1){
         menuLivro()
     }

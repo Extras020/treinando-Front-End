@@ -3,6 +3,7 @@ const prompt = promptSync()
 import { Livro, Usuario, Biblioteca } from './classes.js'
 import { criarLivro, criarUsuario, requisicao_emprestimo, solicita_devolucao } from './objetos.js'
 import { sistema } from './sistema.js'
+import { lerNumero } from './validacoes.js'
 
 
 export function menuLivro(){
@@ -11,7 +12,7 @@ export function menuLivro(){
         console.log("2 - Buscar Livro")
         console.log("3 - Listar acervo")
         console.log("0 - Voltar")
-        let escolha = Number(prompt())
+        let escolha = lerNumero(3)
         if(escolha == 1){
             let livro = criarLivro()
             if(livro != undefined){
@@ -45,7 +46,7 @@ export function menuUsuario(){
         console.log("3 - Listar Usuários")
         console.log("4 - Remover Usuário")
         console.log("0 - Voltar")
-        let escolha = Number(prompt())
+        let escolha = lerNumero(4)
         if(escolha == 1){
             let usuario = criarUsuario()
             if(usuario != undefined){
@@ -86,7 +87,7 @@ export function menuEmprestimos(){
         console.log("1 - Emprestar Livro")
         console.log("2 - Devolver Livro")
         console.log("0 - Voltar")
-        let escolha = Number(prompt())
+        let escolha = lerNumero(2)
         if(escolha == 1){
             let req_emprestimo = requisicao_emprestimo()
             if(req_emprestimo != undefined){

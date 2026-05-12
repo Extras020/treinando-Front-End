@@ -2,6 +2,7 @@ import promptSync from 'prompt-sync'
 const prompt = promptSync()
 import {Livro, Usuario, Biblioteca} from './classes.js'
 import { sistema } from './sistema.js'
+import { lerNumero } from './validacoes.js'
 
 export function criarUsuario(){
     let nome = prompt("digite o nome do usuário: ")
@@ -25,8 +26,9 @@ export function requisicao_emprestimo(){
     while(escolha == 0){
         cpf_usuario = prompt("digite o cpf do usuário: ")
         sistema.buscarUsuario(cpf_usuario)
-        escolha = Number(prompt("confirme se esse é o usuário(1 para sim, 0 para não, 2 para cancelar a operação): "))
-        if(escolha == 2){
+        console.log("confirme se esse é o usuário(1 para sim, 2 para não, 0 para cancelar a operação): ")
+        escolha = lerNumero(2)
+        if(escolha == 0){
             return
         }
     }
@@ -34,8 +36,9 @@ export function requisicao_emprestimo(){
     while(escolha == 0){
         id_livro = prompt("digite o id do livro: ")
         sistema.buscarLivro(id_livro)
-        escolha = Number(prompt("confirme se esse é o livro(1 para sim, 0 para não, 2 para cancelar a operação): "))
-        if(escolha == 2){
+        console.log("confirme se esse é o livro(1 para sim, 2 para não, 0 para cancelar a operação): ")
+        escolha = lerNumero(2)
+        if(escolha == 0){
             return
         }
     }
@@ -52,8 +55,9 @@ export function solicita_devolucao(){
     while(escolha == 0){
         cpf_usuario = prompt("digite o cpf do usuario: ")
         sistema.buscarUsuario(cpf_usuario)
-        escolha = Number(prompt("confirme se esse é o usuário(1 para sim, 0 para não, 2 para cancelar a operação): "))
-        if(escolha == 2){
+        console.log("confirme se esse é o usuário(1 para sim, 2 para não, 0 para cancelar a operação): ")
+        escolha = lerNumero(2)
+        if(escolha == 0){
             return
         }
     }
@@ -61,8 +65,9 @@ export function solicita_devolucao(){
     while(escolha == 0){
         id_livro = prompt("digite o id do livro: ")
         sistema.buscarLivro(id_livro)
-        escolha = Number(prompt("confirme se esse é o livro(1 para sim, 0 para não, 2 para cancelar a operação): "))
-        if(escolha == 2){
+        console.log("confirme se esse é o livro(1 para sim, 2 para não, 0 para cancelar a operação): ")
+        escolha = lerNumero(2)
+        if(escolha == 0){
             return
         }
     }

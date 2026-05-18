@@ -1,3 +1,5 @@
+import fs from 'fs'
+
 export class Livro{
     #id
     #qnt
@@ -66,6 +68,11 @@ export class Biblioteca{
             }
         }
         this.acervo.push(new Livro(livro.nome, livro.autor, livro.Id, livro.quantidade))
+        let dados = JSON.stringify(this.acervo)
+        fs.writeFileSync(
+            "acervo.json",
+            dados
+        )
         console.log("livro cadastrado!")
     }
     cadastrarUsuario(usuario){
@@ -76,6 +83,11 @@ export class Biblioteca{
             }
         }
         this.usuarios.push(new Usuario(usuario.nome, usuario.cpf, usuario.idade))
+        let dados = JSON.stringify(this.usuarios)
+        fs.writeFileSync(
+            "usuarios.json",
+            dados
+        )
         console.log("usuário cadastrado!")
     }
     emprestarLivro(dados){

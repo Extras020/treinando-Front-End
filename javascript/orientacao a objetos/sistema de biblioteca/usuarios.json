@@ -1,1 +1,8 @@
-[{"nome":"Esdras Lucas Martins dos Santos Almeida","idade":"24","emprestados":[]}]
+[
+    {
+        "nome": "esdras lucas martins dos santos almeida",
+        "idade": "24",
+        "cpf": "70211538485",
+        "emprestados": []
+    }
+]

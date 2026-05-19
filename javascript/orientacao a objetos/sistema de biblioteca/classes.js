@@ -27,6 +27,14 @@ export class Livro{
     maisUm(){
         this.#qnt++
     }
+    toJSON(){
+        return {
+            nome: this.nome,
+            autor: this.autor,
+            id: this.#id,
+            qnt: this.#qnt
+        }
+    }
 }
 export class Usuario{
     #cpf
@@ -54,6 +62,14 @@ export class Usuario{
     get cpf(){
         return this.#cpf
     }
+    toJSON(){
+        return {
+            nome: this.nome,
+            idade: this.idade,
+            cpf: this.#cpf,
+            emprestados: this.emprestados
+        }
+    }
 }
 export class Biblioteca{
     constructor(){
@@ -68,7 +84,7 @@ export class Biblioteca{
             }
         }
         this.acervo.push(new Livro(livro.nome, livro.autor, livro.Id, livro.quantidade))
-        let dados = JSON.stringify(this.acervo)
+        let dados = JSON.stringify(this.acervo, null, 4)
         fs.writeFileSync(
             "acervo.json",
             dados
@@ -83,7 +99,7 @@ export class Biblioteca{
             }
         }
         this.usuarios.push(new Usuario(usuario.nome, usuario.cpf, usuario.idade))
-        let dados = JSON.stringify(this.usuarios)
+        let dados = JSON.stringify(this.usuarios, null, 4)
         fs.writeFileSync(
             "usuarios.json",
             dados

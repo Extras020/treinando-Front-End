@@ -56,7 +56,7 @@ export class Usuario{
            for(let i = 0; i < this.emprestados.length; i++){
                 this.emprestados[i].mostrarDados()
                 console.log("--------------------------------------------")
-            } 
+            }
         }
     }
     get cpf(){

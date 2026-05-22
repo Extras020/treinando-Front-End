@@ -225,7 +225,38 @@ export class Biblioteca{
                 return
             }
             else{
-                usuarios.splice(pos_user, 1)
+                this.usuarios.splice(pos_user, 1)
+            }
+        }
+    }
+    removerLivro(id){
+        let pos_book
+        let u, l, i, cont = 0
+        for(i = 0; i < this.acervo.length; i++){
+            if(id == this.acervo[i].Id){
+                pos_book = i
+                break
+            }
+        }
+        if(pos_book == undefined){
+            console.log("livro não encontrado, tente novamente!")
+            return
+        }
+        else{
+            for(u = 0; u < this.usuarios.length; u++){
+                for(l = 0; l < this.usuarios[u].emprestados.length; l++){
+                    if(this.usuarios[u].emprestados[l].Id == id){
+                        cont++
+                        break
+                    }
+                }
+            }
+            if(cont != 0){
+                console.log("ainda há emprestimos ativos para esse livro, operação não pode ser realizada!")
+                return
+            }
+            else{
+                this.acervo.splice(pos_book, 1)
             }
         }
     }

@@ -1,8 +1,62 @@
 [
     {
-        "nome": "biblia",
-        "autor": "Deus",
-        "id": "19",
-        "qnt": "1"
+        "nome": "clean code",
+        "autor": "robert c martin",
+        "id": "L001",
+        "qnt": 2
+    },
+    {
+        "nome": "estrutura de dados em C",
+        "autor": "mark allen weiss",
+        "id": "L002",
+        "qnt": "2"
+    },
+    {
+        "nome": "JavaScript: O guia definitivo",
+        "autor": "david flanagan",
+        "id": "L003",
+        "qnt": 3
+    },
+    {
+        "nome": "codigo limpo para javascript",
+        "autor": "james padosley",
+        "id": "L004",
+        "qnt": "2"
+    },
+    {
+        "nome": "entendendo algoritmos",
+        "autor": "aditya bhargava",
+        "id": "L005",
+        "qnt": 4
+    },
+    {
+        "nome": "refactoring",
+        "autor": "martin fowler",
+        "id": "L006",
+        "qnt": "2"
+    },
+    {
+        "nome": "design patterns",
+        "autor": "erich gamma",
+        "id": "L007",
+        "qnt": 0
+    },
+    {
+        "nome": "o programador pragmatico",
+        "autor": "andrew hunt",
+        "id": "L008",
+        "qnt": "3"
+    },
+    {
+        "nome": "introducao a computacao",
+        "autor": "peter norton",
+        "id": "L009",
+        "qnt": "4"
+    },
+    {
+        "nome": "arquitetura limpa",
+        "autor": "robert c martin",
+        "id": "L010",
+        "qnt": 1
     }
 ]

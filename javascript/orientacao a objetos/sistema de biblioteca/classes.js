@@ -54,7 +54,7 @@ export class Usuario{
         }
         else{
            for(let i = 0; i < this.emprestados.length; i++){
-                this.emprestados[i].mostrarDados()
+                console.log(`${this.emprestados[i]}`)
                 console.log("--------------------------------------------")
             }
         }
@@ -84,11 +84,7 @@ export class Biblioteca{
             }
         }
         this.acervo.push(new Livro(livro.nome, livro.autor, livro.Id, livro.quantidade))
-        let dados = JSON.stringify(this.acervo, null, 4)
-        fs.writeFileSync(
-            "acervo.json",
-            dados
-        )
+        this.salvarAcervo()
         console.log("livro cadastrado!")
     }
     cadastrarUsuario(usuario){
@@ -99,11 +95,7 @@ export class Biblioteca{
             }
         }
         this.usuarios.push(new Usuario(usuario.nome, usuario.cpf, usuario.idade))
-        let dados = JSON.stringify(this.usuarios, null, 4)
-        fs.writeFileSync(
-            "usuarios.json",
-            dados
-        )
+        this.salvarUsuario()
         console.log("usuário cadastrado!")
     }
     emprestarLivro(dados){
@@ -133,16 +125,18 @@ export class Biblioteca{
             console.log("usuário já atingiu o limite de emprestimos, operação não pode ser realizada!")
             return
         }
-        if(this.usuarios[pos_user].emprestados.length < 5){
+        else if(this.usuarios[pos_user].emprestados.length < 5){
             if(this.acervo[pos_book].quantidade == 0){
                 console.log(`livro não disponível!`)
                 return
             }
             else{
-                this.usuarios[pos_user].emprestados.push(this.acervo[pos_book])
+                this.usuarios[pos_user].emprestados.push(this.acervo[pos_book].Id)
                 this.acervo[pos_book].menosUm()
             }
         }
+        this.salvarUsuario()
+        this.salvarAcervo()
         console.log("empréstimo realizado!")
     }
     devolverLivro(dados){
@@ -252,12 +246,26 @@ export class Biblioteca{
                 }
             }
             if(cont != 0){
-                console.log("ainda há emprestimos ativos para esse livro, operação não pode ser realizada!")
+                console.log(`ainda há ${cont} emprestimos ativos para esse livro, operação não pode ser realizada!`)
                 return
             }
             else{
                 this.acervo.splice(pos_book, 1)
             }
         }
+    }
+    salvarUsuario(){
+        let dados = JSON.stringify(this.usuarios, null, 4)
+        fs.writeFileSync(
+            "usuarios.json",
+            dados
+        )
+    }
+    salvarAcervo(){
+        let dados = JSON.stringify(this.acervo, null, 4)
+        fs.writeFileSync(
+            "acervo.json",
+            dados
+        )
     }
 }

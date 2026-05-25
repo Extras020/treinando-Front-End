@@ -1,8 +1,42 @@
 [
     {
-        "nome": "esdras lucas martins dos santos almeida",
-        "idade": "24",
-        "cpf": "70211538485",
-        "emprestados": []
+        "nome": "ana beatriz lima",
+        "idade": "21",
+        "cpf": "30148295011",
+        "emprestados": [
+            "L001"
+        ]
+    },
+    {
+        "nome": "Carlos Henrique Souza",
+        "idade": "27",
+        "cpf": "58492013067",
+        "emprestados": [
+            "L003"
+        ]
+    },
+    {
+        "nome": "Mariana Alves Rocha",
+        "idade": "19",
+        "cpf": "74268139055",
+        "emprestados": [
+            "L005"
+        ]
+    },
+    {
+        "nome": "Jo�o Victor Mendes",
+        "idade": "32",
+        "cpf": "91827364020",
+        "emprestados": [
+            "L007"
+        ]
+    },
+    {
+        "nome": "Fernanda Costa Ribeiro",
+        "idade": "25",
+        "cpf": "66715482093",
+        "emprestados": [
+            "L010"
+        ]
     }
 ]

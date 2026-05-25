@@ -11,6 +11,7 @@ export function menuLivro(){
         console.log("1 - Cadastrar Livro")
         console.log("2 - Buscar Livro")
         console.log("3 - Listar acervo")
+        console.log("4 - Remover livro")
         console.log("0 - Voltar")
         let escolha = lerNumero(3)
         if(escolha == 1){
@@ -33,6 +34,15 @@ export function menuLivro(){
         }
         else if(escolha == 3){
             sistema.listarAcervo()
+        }
+        else if(escolha == 4){
+            let id = prompt("Digite o Id do livro: ")
+            if(id != undefined){
+                sistema.removerLivro(id)
+            }
+            else{
+                console.log("algo deu errado, tente novamente!")
+            }
         }
         else if(escolha == 0){
             return

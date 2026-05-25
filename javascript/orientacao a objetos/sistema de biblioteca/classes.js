@@ -153,7 +153,7 @@ export class Biblioteca{
                 return
         }
         for(let u = 0; u < this.usuarios[pos_user].emprestados.length; u++){
-            if(dados.id == this.usuarios[pos_user].emprestados[u].Id){
+            if(dados.id == this.usuarios[pos_user].emprestados[u]){
                 pos_book = u
                 break
             }
@@ -166,6 +166,8 @@ export class Biblioteca{
         for(let i = 0; i < this.acervo.length; i++){
             if(dados.id == this.acervo[i].Id){
                 this.acervo[i].maisUm()
+                this.salvarAcervo()
+                this.salvarUsuario()
                 console.log("devolução realizada!")
                 return
             }
@@ -220,6 +222,7 @@ export class Biblioteca{
             }
             else{
                 this.usuarios.splice(pos_user, 1)
+                console.log("usuário removido!")
             }
         }
     }
@@ -251,6 +254,7 @@ export class Biblioteca{
             }
             else{
                 this.acervo.splice(pos_book, 1)
+                console.log("livro removido!")
             }
         }
     }

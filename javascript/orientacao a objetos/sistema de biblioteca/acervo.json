@@ -3,7 +3,7 @@
         "nome": "clean code",
         "autor": "robert c martin",
         "id": "L001",
-        "qnt": 2
+        "qnt": 1
     },
     {
         "nome": "estrutura de dados em C",
@@ -15,7 +15,7 @@
         "nome": "JavaScript: O guia definitivo",
         "autor": "david flanagan",
         "id": "L003",
-        "qnt": 3
+        "qnt": 2
     },
     {
         "nome": "codigo limpo para javascript",
@@ -45,7 +45,7 @@
         "nome": "o programador pragmatico",
         "autor": "andrew hunt",
         "id": "L008",
-        "qnt": "3"
+        "qnt": 2
     },
     {
         "nome": "introducao a computacao",

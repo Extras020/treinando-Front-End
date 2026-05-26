@@ -4,39 +4,33 @@
         "idade": "21",
         "cpf": "30148295011",
         "emprestados": [
-            "L001"
+            "L003",
+            "L001",
+            "L008"
         ]
     },
     {
         "nome": "Carlos Henrique Souza",
         "idade": "27",
         "cpf": "58492013067",
-        "emprestados": [
-            "L003"
-        ]
+        "emprestados": []
     },
     {
         "nome": "Mariana Alves Rocha",
         "idade": "19",
         "cpf": "74268139055",
-        "emprestados": [
-            "L005"
-        ]
+        "emprestados": []
     },
     {
         "nome": "Jo�o Victor Mendes",
         "idade": "32",
         "cpf": "91827364020",
-        "emprestados": [
-            "L007"
-        ]
+        "emprestados": []
     },
     {
         "nome": "Fernanda Costa Ribeiro",
         "idade": "25",
         "cpf": "66715482093",
-        "emprestados": [
-            "L010"
-        ]
+        "emprestados": []
     }
 ]

@@ -8,7 +8,8 @@ export function criarUsuario(){
     let nome = prompt("digite o nome do usuário: ")
     let cpf = prompt("informe o cpf do usuário: ")
     let idade = prompt("informe a idade do usuário: ")
-    let usuario = new Usuario(nome, cpf, idade)
+    let contato = prompt("informe um número ou email para contato: ")
+    let usuario = new Usuario(nome, cpf, idade, contato)
     return usuario
 }
 export function criarLivro(){

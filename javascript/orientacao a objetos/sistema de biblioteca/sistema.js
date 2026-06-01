@@ -6,6 +6,9 @@ const dados_users = JSON.parse(users)
 sistema.usuarios = dados_users.map(
     u => new Usuario(u.nome, u.cpf, u.idade)
 )
+for(let l = 0; l < dados_users.length; l++){
+    sistema.usuarios[l].emprestados = dados_users[l].emprestados
+}
 let books = fs.readFileSync("acervo.json", "utf-8")
 const dados_books = JSON.parse(books)
 sistema.acervo = dados_books.map(

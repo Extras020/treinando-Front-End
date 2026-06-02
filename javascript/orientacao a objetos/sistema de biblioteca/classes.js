@@ -41,7 +41,6 @@ export class Usuario{
     constructor(nome, cpf, idade, contato){
         this.nome = nome
         this.idade = idade
-        this.contato = contato
         this.#cpf = cpf
         this.emprestados = []
     }
@@ -92,7 +91,7 @@ export class Biblioteca{
     cadastrarUsuario(usuario){
         let busca_usuario = this.buscarUsuario(usuario.cpf)
         if(busca_usuario == undefined){
-            this.usuarios.push(new Usuario(usuario.nome, usuario.cpf, usuario.idade, usuario.contato))
+            this.usuarios.push(new Usuario(usuario.nome, usuario.cpf, usuario.idade))
             this.salvarUsuario()
             console.log("usuário cadastrado!")
         }
